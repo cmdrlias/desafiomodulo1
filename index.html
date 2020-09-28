@@ -12,7 +12,7 @@
         <meta charset="utf-8">
 
         <script>
-            getUsersFromApi();
+            loadUsers();
         </script>
 
         <title>Desafio Módulo 1</title>
@@ -22,7 +22,7 @@
             <div class="row center-align">
                 <div class="col s12">
                     <div class="input-field col s12">
-                        <input type="text" id="autocomplete-input" onkeydown="loadUsers(this);" class="autocomplete">
+                        <input type="text" id="autocomplete-input" onkeydown="searchUsers(this);" class="autocomplete">
                         <label for="autocomplete-input">Autocomplete</label>
                         <i class="material-icons prefix">search</i>
                     </div>
