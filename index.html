@@ -5,8 +5,15 @@
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="css/style.css" />
 
+        <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta charset="utf-8">
+
+        <script>
+            getUsersFromApi();
+        </script>
 
         <title>Desafio Módulo 1</title>
     </head>
@@ -15,7 +22,7 @@
             <div class="row center-align">
                 <div class="col s12">
                     <div class="input-field col s12">
-                        <input type="text" id="autocomplete-input" class="autocomplete">
+                        <input type="text" id="autocomplete-input" onkeydown="loadUsers(this);" class="autocomplete">
                         <label for="autocomplete-input">Autocomplete</label>
                         <i class="material-icons prefix">search</i>
                     </div>
@@ -30,7 +37,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="js/scripts.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+        
     </body>
 </html>
