@@ -20,7 +20,7 @@ function getUsersFromApi() {
         mode: 'cors'
     });
     let usersFat = JSON.parse(await response.text()).results;*/
-    //users = usersFat.map(({ gender, name, picture, dob }) => ({ gender, name, picture, dob }))
+    //users = usersFat.map(({ gender, name.first + name.last, picture, dob.age }) => ({ gender, name, picture, age }))
 }
 
 function loadUsers(event) {
