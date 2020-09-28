@@ -1,7 +1,7 @@
 const url_api = "https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo";
 const users = [];
 
-function getUsersFromApi() {
+async function getUsersFromApi() {
     fetch(url_api, {
         method: 'get',
         mode: 'cors',
@@ -9,7 +9,6 @@ function getUsersFromApi() {
             'Content-Type': 'application/json'
           })
     }).then(response => {
-        debugger;
         response.text();
     }).catch(function (err) {
         console.error(err);
