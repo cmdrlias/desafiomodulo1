@@ -88,11 +88,31 @@ function searchUsers() {
 
         if (users.length == 1) userCount.innerText = users.length + " usuario encontrado";
         else userCount.innerText = users.length + " usuarios encontrados";
-
-        console.log(users.length)
     } else {
-        debugger;
         var spanCount = document.getElementById("userCountWrap");
         spanCount.innerText = "";
     }
+
+    statistics();
+}
+
+function statistics() {
+    var mascCount = document.getElementById("mascCount");
+    mascCount.innerText = users.filter(n => n.gender == "male").length;
+
+    var femCount = document.getElementById("femCount");
+    femCount.innerText = users.filter(n => n.gender == "female").length;
+
+    var ageSum = document.getElementById("ageSum");
+    ageSum.innerText = users.reduce((n, p) => {
+        var sum = n.age + p.age;
+        return !Number.isNaN(sum) ? sum : 0;
+    });
+
+    var ageAvg = document.getElementById("ageAvg");
+    
+    ageAvg.innerText = users.reduce((n, p) => {
+        var avg = users.reduce((n, p) => (n.age + p.age) / users.length);
+        return !Number.isNaN(avg) ? avg : 0;
+    });
 }
