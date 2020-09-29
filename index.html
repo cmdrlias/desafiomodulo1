@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        <link type="text/css" rel="stylesheet" href="css/style.css" />
 
-        <script type="text/javascript" src="js/scripts.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta charset="utf-8">
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 
-        <script>
-            getUsersFromApi();
-        </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
 
-        <title>Desafio Módulo 1</title>
-    </head>
-    <body>
-        <div class="container body-wrap grey darken-3 grey-text text-lighten-2 z-depth-5">
-            <div class="row center-align">
-                <div class="col s12">
-                    <div class="input-field col s12">
-                        <input type="text" id="autocomplete-input" onkeydown="loadUsers(this);" class="autocomplete">
-                        <label for="autocomplete-input">Autocomplete</label>
-                        <i class="material-icons prefix">search</i>
-                    </div>
-                </div>
-            </div>
-            <div class="row center-align">
-                <div class="col s6">
-                    <p>container 2</p>
-                </div>
-                <div class="col s6">
-                    <p>container 3</p>
+    <script>
+        window.onload = function () {
+            loadUsers();
+            document.getElementById("inpSearch").addEventListener("keyup", function (event) {
+                debugger;
+                searchUsers(document.getElementById("inpSearch").value);
+            });
+        }
+    </script>
+
+    <title>Desafio Módulo 1</title>
+</head>
+
+<body>
+    <div class="container body-wrap grey darken-3 grey-text text-lighten-2 z-depth-5">
+        <div class="row center-align">
+            <div class="col s12">
+                <div class="input-field col s12">
+                    <input id="inpSearch" type="text" id="autocomplete-input" class="autocomplete">
+                    <label for="autocomplete-input">Autocomplete</label>
+                    <i class="material-icons prefix">search</i>
                 </div>
             </div>
         </div>
-        
-    </body>
+        <div class="row center-align">
+            <div id="idMain" class="col s6">
+                <!--<div id="divFirst" class="row left-align">
+                </div>-->
+            </div>
+        </div>
+        <div class="col s6">
+            <p>container 3</p>
+        </div>
+    </div>
+    </div>
+
+</body>
+
 </html>
