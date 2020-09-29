@@ -65,6 +65,7 @@ function showUsers(users) {
 }
 
 function cleanUsers() {
+    user = [];
     var div = document.getElementById("divFirst");
     if (div != null)
         div.remove();
@@ -75,7 +76,5 @@ function searchUsers(search) {
     if (search != "") {
         users = usersFull.filter(u => u.name.ignoreCase == search.ignoreCase);
         showUsers(users);
-    } else {
-        users = [];
     }
 }
