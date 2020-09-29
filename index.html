@@ -16,7 +16,6 @@
         window.onload = function () {
             loadUsers();
             document.getElementById("inpSearch").addEventListener("keyup", function (event) {
-                debugger;
                 searchUsers(document.getElementById("inpSearch").value);
             });
         }
@@ -37,9 +36,11 @@
             </div>
         </div>
         <div class="row center-align">
+            <div class="col s12 left-align" id="userCountWrap">
+            </div>
+        </div>
+        <div class="row center-align">
             <div id="idMain" class="col s6">
-                <!--<div id="divFirst" class="row left-align">
-                </div>-->
             </div>
         </div>
         <div class="col s6">
