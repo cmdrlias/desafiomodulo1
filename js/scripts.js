@@ -66,9 +66,10 @@ function showUsers(users) {
 
 function cleanUsers() {
     user = [];
-    var div = document.getElementById("divFirst");
-    if (div != null)
-        div.remove();
+    var div1 = document.getElementById("divFirst");
+    var div2 = document.getElementById("userCount");
+    if (div1 != null) div1.remove();
+    if (div2 != null) div2.remove();
 }
 
 function searchUsers() {
@@ -77,5 +78,19 @@ function searchUsers() {
     if (search != "") {
         users = usersFull.filter(u => u.name.toLowerCase().indexOf(search.toLowerCase()) >= 0);
         showUsers(users);
+        
+        if(document.getElementById("userCount") == null) {
+            var userCount = document.getElementById("userCountWrap");
+            var span = document.createElement("span");
+            span.id = "userCount";
+            userCount.appendChild(span);
+        }
+
+        var span = document
+
+        if (users.length == 1) userCount.innerText = users.length + " usuario encontrado";
+        else userCount.innerText = users.length + " usuarios encontrados";
+
+        console.log(users.length)
     }
 }
