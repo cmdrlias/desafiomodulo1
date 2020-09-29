@@ -72,7 +72,8 @@ function cleanUsers() {
     if (div2 != null) div2.remove();
 }
 
-function searchUsers(search) {
+function searchUsers() {
+    var search = document.getElementById("inpSearch").value;
     cleanUsers();
     if (search != "") {
         users = usersFull.filter(u => u.name.toLowerCase().indexOf(search.toLowerCase()) >= 0);

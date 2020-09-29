@@ -16,7 +16,17 @@
         window.onload = function () {
             loadUsers();
             document.getElementById("inpSearch").addEventListener("keyup", function (event) {
+<<<<<<< HEAD
+                searchUsers();
+            });
+
+            document.getElementById("inpSearch").addEventListener("keypress", function (event) {
+                if (event.which == 13) {
+                    searchUsers();
+                }
+=======
                 searchUsers(document.getElementById("inpSearch").value);
+>>>>>>> 69a25da8b2d4af8d372c38ccd335790d3169f6c3
             });
         }
     </script>
@@ -31,7 +41,7 @@
                 <div class="input-field col s12">
                     <input id="inpSearch" type="text" id="autocomplete-input" class="autocomplete">
                     <label for="autocomplete-input">Autocomplete</label>
-                    <i class="material-icons prefix">search</i>
+                    <i onclick="searchUsers();" class="material-icons prefix">search</i>
                 </div>
             </div>
         </div>
