@@ -85,8 +85,6 @@ function searchUsers(search) {
             userCount.appendChild(span);
         }
 
-        var span = document
-
         if (users.length == 1) userCount.innerText = users.length + " usuario encontrado";
         else userCount.innerText = users.length + " usuarios encontrados";
 
