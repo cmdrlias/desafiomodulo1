@@ -104,16 +104,19 @@ function statistics() {
     var femCount = document.getElementById("femCount");
     femCount.innerText = users.filter(n => n.gender == "female").length;
 
-    var ageSum = document.getElementById("ageSum");
-    ageSum.innerText = users.reduce((n, p) => {
-        var sum = n.age + p.age;
-        return !Number.isNaN(sum) ? sum : 0;
-    });
-
-    var ageAvg = document.getElementById("ageAvg");
+    if(users.length > 1) {
+        var ageSum = document.getElementById("ageSum");
     
-    ageAvg.innerText = users.reduce((n, p) => {
-        var avg = users.reduce((n, p) => (n.age + p.age) / users.length);
-        return !Number.isNaN(avg) ? avg : 0;
-    });
+        ageSum.innerText = users.reduce((n, p) => {
+            var sum = n.age + p.age;
+            return !Number.isNaN(sum) ? sum : 0;
+        });
+
+        var ageAvg = document.getElementById("ageAvg");
+    
+        ageAvg.innerText = users.reduce((n, p) => {
+            var avg = users.reduce((n, p) => (n.age + p.age) / users.length);
+            return !Number.isNaN(avg) ? avg : 0;
+        });
+    }
 }
