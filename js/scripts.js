@@ -73,14 +73,15 @@ function cleanUsers() {
 }
 
 function searchUsers() {
-    var search = document.getElementById("inpSearch").value;
     cleanUsers();
+    var search = document.getElementById("inpSearch").value;
     if (search != "") {
         users = usersFull.filter(u => u.name.toLowerCase().indexOf(search.toLowerCase()) >= 0);
         showUsers(users);
-
+        
+        var userCount;
         if (document.getElementById("userCount") == null) {
-            var userCount = document.getElementById("userCountWrap");
+            userCount = document.getElementById("userCountWrap");
             var span = document.createElement("span");
             span.id = "userCount";
             userCount.appendChild(span);
@@ -88,10 +89,7 @@ function searchUsers() {
 
         if (users.length == 1) userCount.innerText = users.length + " usuario encontrado";
         else userCount.innerText = users.length + " usuarios encontrados";
-
-        console.log(users.length)
     } else {
-        debugger;
         var spanCount = document.getElementById("userCountWrap");
         spanCount.innerText = "";
     }
