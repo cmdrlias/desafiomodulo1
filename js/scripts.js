@@ -54,7 +54,7 @@ function showUsers(users) {
         divImgUser.appendChild(imgTag);
 
         var spanTag = document.createElement("span");
-        spanTag.innerText = user.name + ", " + user.gender + ", " + user.age;
+        spanTag.innerText = user.name + ", " + user.age + " anos";
         spanTag.classList = "col s10 white-text";
         divInfoUser.appendChild(spanTag);
 
@@ -78,7 +78,7 @@ function searchUsers() {
     if (search != "") {
         users = usersFull.filter(u => u.name.toLowerCase().indexOf(search.toLowerCase()) >= 0);
         showUsers(users);
-        
+
         var userCount;
         if (document.getElementById("userCount") == null) {
             userCount = document.getElementById("userCountWrap");
@@ -94,3 +94,4 @@ function searchUsers() {
         spanCount.innerText = "";
     }
 }
+
