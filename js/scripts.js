@@ -42,7 +42,7 @@ function showUsers(users) {
         var divInfoUser = document.createElement("div");
         divInfoUser.classList = "col s10 white-text";
         divInfoUser.id = "infoUser";
-        
+
         div.appendChild(div2);
         div2.appendChild(div3);
         div3.appendChild(divImgUser);
@@ -78,8 +78,8 @@ function searchUsers() {
     if (search != "") {
         users = usersFull.filter(u => u.name.toLowerCase().indexOf(search.toLowerCase()) >= 0);
         showUsers(users);
-        
-        if(document.getElementById("userCount") == null) {
+
+        if (document.getElementById("userCount") == null) {
             var userCount = document.getElementById("userCountWrap");
             var span = document.createElement("span");
             span.id = "userCount";
@@ -90,5 +90,9 @@ function searchUsers() {
         else userCount.innerText = users.length + " usuarios encontrados";
 
         console.log(users.length)
+    } else {
+        debugger;
+        var spanCount = document.getElementById("userCountWrap");
+        spanCount.innerText = "";
     }
 }
