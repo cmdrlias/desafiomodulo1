@@ -73,7 +73,7 @@ function cleanUsers() {
 function searchUsers(search) {
     cleanUsers();
     if (search != "") {
-        users = usersFull.filter(u => u.name.ignoreCase == search.ignoreCase);
+        users = usersFull.filter(u => u.name.toLowerCase().indexOf(search.toLowerCase()) >= 0);
         showUsers(users);
     } else {
         users = [];
