@@ -65,15 +65,30 @@ function showUsers(users) {
 }
 
 function cleanUsers() {
-    user = [];
     var div1 = document.getElementById("divFirst");
     var div2 = document.getElementById("userCount");
+
     if (div1 != null) div1.remove();
     if (div2 != null) div2.remove();
+
+}
+
+function cleanStatistics() {
+    var div3 = document.getElementById("mascCount")
+    var div4 = document.getElementById("femCount");
+    var div5 = document.getElementById("ageSum");
+    var div6 = document.getElementById("ageAvg");
+
+    if (div3 != null) div3.innerText = "";
+    if (div4 != null) div4.innerText = "";
+    if (div5 != null) div5.innerText = "";
+    if (div6 != null) div6.innerText = "";
+
 }
 
 function searchUsers() {
     cleanUsers();
+    cleanStatistics();
     var search = document.getElementById("inpSearch").value;
     if (search != "") {
         users = usersFull.filter(u => u.name.toLowerCase().indexOf(search.toLowerCase()) >= 0);
@@ -89,24 +104,27 @@ function searchUsers() {
 
         if (users.length == 1) userCount.innerText = users.length + " usuario encontrado";
         else userCount.innerText = users.length + " usuarios encontrados";
+
+        
+        showStatistics();
     } else {
         var spanCount = document.getElementById("userCountWrap");
         spanCount.innerText = "";
     }
 
-    statistics();
 }
 
-function statistics() {
+function showStatistics() {
     var mascCount = document.getElementById("mascCount");
     mascCount.innerText = users.filter(n => n.gender == "male").length;
 
     var femCount = document.getElementById("femCount");
     femCount.innerText = users.filter(n => n.gender == "female").length;
 
-    if(users.length > 1) {
-        var ageSum = document.getElementById("ageSum");
+    var ageSum = document.getElementById("ageSum");
+    var ageAvg = document.getElementById("ageAvg");
 
+    if(users.length > 1) {
         var ageList = [];
 
         for(key in users) 
@@ -117,10 +135,11 @@ function statistics() {
         
         ageSum.innerText = !Number.isNaN(sum) ? sum : 0;
 
-        var ageAvg = document.getElementById("ageAvg");
-
         var avg = ageList.reduce((n, p) => (n + p)) / users.length;
 
         ageAvg.innerText = !Number.isNaN(avg) ? avg.toFixed(2) : 0;
+    } else {
+        ageSum.innerText = users[0].age;
+        ageAvg.innerText = users[0].age;
     }
 }
